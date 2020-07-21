@@ -1,0 +1,136 @@
+<head>
+</head>
+<h1>About</h1>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="cv.html">CV</a>
+<br><br>
+<canvas id="canvas"></canvas>
+<br><br>
+<br><br>
+<img src="me3.png">
+<div class="text">
+Julia is an attorney, programmer, and researcher specializing in XR and tech policy.
+She is currently getting a Ph.D. in creative technology and design at the ATLAS Institute at the University of Colorado, Boulder.
+<br><br>
+Contact: julia.uhr@colorado.edu
+</div>
+
+<script>
+
+(function () {
+  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  window.requestAnimationFrame = requestAnimationFrame;
+})();
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var width = 400;
+var height = 30;
+
+//make unfuzzy on retina display
+canvas.width = width*2;
+canvas.height = height*2;
+canvas.style.width = width;
+canvas.style.height = height;
+ctx.scale(2,2);
+
+var pointCount = 10;
+var lines = [[],[]];
+
+for(i=0; i<lines.length; i++){
+  for(j=0; j<pointCount; j++){
+    if(j==pointCount){
+      ny = 25;
+    }else{
+      ny = Math.random()*(height-2);
+    }
+    lines[i].push({
+      x: j*30+60,
+      y: Math.random()*height,
+      nextY: ny
+    });
+  }
+};
+
+
+var loopCount = 0;
+
+function update() {
+  var done = true;
+  ctx.clearRect(0,0,width,height);
+  loopCount++;
+  for(var i=0; i<lines.length; i++){
+    ctx.beginPath();
+    ctx.moveTo(0, height/2);
+    for (var j=0; j < lines[i].length; j++){
+      move(lines[i][j]);
+      ctx.lineTo(lines[i][j].x, lines[i][j].y);
+      if(lines[i][j].y<lines[i][j].nextY){
+        done = false;
+      }
+    }
+    ctx.lineTo(width-1, height/2);
+    ctx.stroke();
+  }
+  if(done){
+    window.cancelAnimationFrame();
+  }
+  requestAnimationFrame(update);
+}
+
+function move(point){
+  if(point.y<point.nextY+1){
+    point.y+=.5;
+  }else if(point.y>point.nextY-1){
+    point.y-=.5;
+  }
+}
+
+window.addEventListener("load", function () {
+  update();
+});
+
+</script>
+
+
+<style>
+
+  body{
+    text-align:center;
+    background-color:white;
+    padding:1em;
+    font-family: georgia, serif;
+  }
+  h2{
+    text-align:left;
+    padding-left: 1em;
+  }
+  li{
+    text-align:left;
+    padding-left: 1em;
+  }
+  img{
+    width:300px;
+    float:right;
+  }
+  .text{
+    text-align:right;
+  }
+  a{
+    padding:5px;
+    background-color: white;
+    color:black;
+    border:1px solid white;
+    width: 200px;
+    font-size: 20px;
+    text-decoration:none;
+  }
+  a:hover{
+    border:1px solid black;
+    color:black;
+  }
+  canvas{
+    border-bottom:0px solid black;
+  }
+</style>
