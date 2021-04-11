@@ -1,191 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="cv.css">
+  <script src="lines.js" defer></script>
   <title>Julia Uhr - CV</title>
 </head>
-<h1>CV</h1>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="projects.html">Projects</a>
-<br><br>
-<canvas id="canvas"></canvas>
-<br><br>
-<br><br>
+<body>
+  <h1>CV</h1>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <br><br>
+  <canvas id="canvas"></canvas>
+  <br><br>
+  <br><br>
 
-<h2>Education</h2>
-<ul>
-  <li>Current Ph.D. student in Creative Technology and Design, ATLAS Institute, University of Colorado Boulder</li>
-  <li>M.A. Philosophy, University of Colorado Boulder, 2020</li>
-  <li>J.D. University of Colorado Boulder, 2016 (licensed attorney in CO)</li>
-  <li>B.A. Philosophy, Mount Holyoke College, 2010</li>
-</ul>
-<br>
+  <h2>Education</h2>
+  <ul>
+    <li>Current Ph.D. student in Creative Technology and Design, ATLAS Institute, University of Colorado Boulder</li>
+    <li>M.A. Philosophy, University of Colorado Boulder, 2020</li>
+    <li>J.D. University of Colorado Boulder, 2016 (licensed attorney in CO)</li>
+    <li>B.A. Philosophy, Mount Holyoke College, 2010</li>
+  </ul>
+  <br>
 
-<h2>Research Experience</h2>
-<ul>
-  <li>Research Assistant, CU philosophy department, AY 2017-2018</li>
-  <li>Research Assistant, CU law school, Fall 2015, Summer 2014</li>
-</ul>
-<br>
+  <h2>Research Experience</h2>
+  <ul>
+    <li>Research Assistant, CU philosophy department, AY 2017-2018</li>
+    <li>Research Assistant, CU law school, Fall 2015, Summer 2014</li>
+  </ul>
+  <br>
 
-<h2>Teaching Experience</h2>
-<ul>
-  <li>Graduate Assistant, Center for Research Data and Digital Scholarship, AY 2019-2020</li>
-  <li>Teaching Assistant, CU philosophy department, AY 2018-2019</li>
-  <li>Teaching Assistant, CU law school, Fall 2014</li>
-</ul>
-<br>
+  <h2>Teaching Experience</h2>
+  <ul>
+    <li>Graduate Assistant, Center for Research Data and Digital Scholarship, AY 2019-2020</li>
+    <li>Teaching Assistant, CU philosophy department, AY 2018-2019</li>
+    <li>Teaching Assistant, CU law school, Fall 2014</li>
+  </ul>
+  <br>
 
-<h2>Conference Presentations</h2>
-<ul>
-  <li><i>The Stillness in the Room: An Escape Room Game and Immersive Emily Dickinson Reading Room in Virtual Reality</i>, Emily Dickinson International Society panel on Dickinson at a Distance, July 2020</li>
-  <li><i>Explore Plato's Cave in Virtual Reality</i>, DH2020, July 2020</li>
-  <li><i>Promoting Library Accessibility and Outreach with Special Collections in Virtual Reality</i>, DH2020, July 2020</li>
-  <li><i>The Freedom of Computer-Generated Speech</i>, American Philosophical Association Pacific Meeting, April 2020 (accepted through peer review, canceled due to COVID-19)</li>
-  <li><i>The Special Collections of CU Fairytale Library in Virtual Reality</i>, Colorado Learning and Teaching with Technology Conference, August 2019</li>
-  <li><i>The Individual Right to Free Speech on Social Media</i>, American Philosophical Association Central Meeting, February 2019</li>
-  <li><i>Gamifying Philosophy</i>, Public Philosophy Network Conference, February 2018</li>
-</ul>
-<br>
+  <h2>Conference Presentations</h2>
+  <ul>
+    <li><i>The Stillness in the Room: An Escape Room Game and Immersive Emily Dickinson Reading Room in Virtual Reality</i>, Emily Dickinson International Society panel on Dickinson at a Distance, July 2020</li>
+    <li><i>Explore Plato's Cave in Virtual Reality</i>, DH2020, July 2020</li>
+    <li><i>Promoting Library Accessibility and Outreach with Special Collections in Virtual Reality</i>, DH2020, July 2020</li>
+    <li><i>The Freedom of Computer-Generated Speech</i>, American Philosophical Association Pacific Meeting, April 2020 (accepted through peer review, canceled due to COVID-19)</li>
+    <li><i>The Special Collections of CU Fairytale Library in Virtual Reality</i>, Colorado Learning and Teaching with Technology Conference, August 2019</li>
+    <li><i>The Individual Right to Free Speech on Social Media</i>, American Philosophical Association Central Meeting, February 2019</li>
+    <li><i>Gamifying Philosophy</i>, Public Philosophy Network Conference, February 2018</li>
+  </ul>
+  <br>
 
-<h2>Fellowships, Grants, and Awards</h2>
-<ul>
-  <li>Epic MegaGrant 2020</li>
-  <li>Center for Humanities and Arts Shelter in Place Microgrant, summer 2020</li>
-  <li>Best of Show Award, Broadcast Education Association, October 2019</li>
-  <li>Center for Humanities and Arts 2nd Leg Summer Fellowship, summer 2019</li>
-  <li>CU Provost's Fellowship for Information Science, spring 2019</li>
-  <li>2nd Place, Center for Research Data and Digital Scholarship Data Visualization Contest 2018</li>
-  <li>CU Engaged Arts and Humanities Fellowship 2018</li>
-  <li>CU Law School Rothgerber Teaching Fellowship 2014</li>
-  <li>CU Law School Dean’s Fellowship 2013</li>
-  <li>CU Law School Dean’s List, fall 2013</li>
-</ul>
-
-<script>
-
-(function () {
-  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-  window.requestAnimationFrame = requestAnimationFrame;
-})();
-
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var width = 400;
-var height = 30;
-
-//make unfuzzy on retina display
-canvas.width = width*2;
-canvas.height = height*2;
-canvas.style.width = width;
-canvas.style.height = height;
-ctx.scale(2,2);
-
-var pointCount = 10;
-var lines = [[],[]];
-
-for(i=0; i<lines.length; i++){
-  for(j=0; j<pointCount; j++){
-    if(j==pointCount){
-      ny = 25;
-    }else{
-      ny = Math.random()*(height-2);
-    }
-    lines[i].push({
-      x: j*30+60,
-      y: Math.random()*height,
-      nextY: ny
-    });
-  }
-};
-
-
-var loopCount = 0;
-
-function update() {
-  var done = true;
-  ctx.clearRect(0,0,width,height);
-  loopCount++;
-  for(var i=0; i<lines.length; i++){
-    ctx.beginPath();
-    ctx.moveTo(0, height/2);
-    for (var j=0; j < lines[i].length; j++){
-      move(lines[i][j]);
-      ctx.lineTo(lines[i][j].x, lines[i][j].y);
-      if(lines[i][j].y<lines[i][j].nextY){
-        done = false;
-      }
-    }
-    ctx.lineTo(width-1, height/2);
-    ctx.stroke();
-  }
-  if(done){
-    window.cancelAnimationFrame();
-  }
-  requestAnimationFrame(update);
-}
-
-function move(point){
-  if(point.y<point.nextY+1){
-    point.y+=.5;
-  }else if(point.y>point.nextY-1){
-    point.y-=.5;
-  }
-}
-
-window.addEventListener("load", function () {
-  update();
-});
-
-</script>
-
-
-<style>
-
-  body{
-    text-align:center;
-    background-color:white;
-    padding:1em;
-    font-family: georgia, serif;
-  }
-  h2{
-    text-align:left;
-    padding: 10px;
-    width: 500px;
-    margin:0px;
-  }
-  ul{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin:0px;
-  }
-  li{
-    text-align:left;
-    padding-left: 1em;
-  }
-  img{
-    width:45%;
-    border:1px solid black;
-    float:left;
-  }
-  .text{
-    width:45%;
-    float:right;
-    text-align:left;
-  }
-  a{
-    padding:5px;
-    background-color: white;
-    color:black;
-    border:1px solid white;
-    width: 200px;
-    font-size: 20px;
-    text-decoration:none;
-  }
-  a:hover{
-    border:1px solid black;
-    color:black;
-  }
-  canvas{
-    border-bottom:0px solid black;
-  }
-</style>
+  <h2>Fellowships, Grants, and Awards</h2>
+  <ul>
+    <li>Epic MegaGrant 2020</li>
+    <li>Center for Humanities and Arts Shelter in Place Microgrant, summer 2020</li>
+    <li>Best of Show Award, Broadcast Education Association, October 2019</li>
+    <li>Center for Humanities and Arts 2nd Leg Summer Fellowship, summer 2019</li>
+    <li>CU Provost's Fellowship for Information Science, spring 2019</li>
+    <li>2nd Place, Center for Research Data and Digital Scholarship Data Visualization Contest 2018</li>
+    <li>CU Engaged Arts and Humanities Fellowship 2018</li>
+    <li>CU Law School Rothgerber Teaching Fellowship 2014</li>
+    <li>CU Law School Dean’s Fellowship 2013</li>
+    <li>CU Law School Dean’s List, fall 2013</li>
+  </ul>
+</body>
+</html>
