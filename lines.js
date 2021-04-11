@@ -8,11 +8,11 @@ var ctx = canvas.getContext("2d");
 var width = 400;
 var height = 30;
 
-canvas.width = width;
-canvas.height = height;
+canvas.width = width*2;
+canvas.height = height*2;
 canvas.style.width = width;
 canvas.style.height = height;
-//ctx.scale(2,2);
+ctx.scale(2,2);
 
 var pointCount = 10;
 var lines = [[],[]];
