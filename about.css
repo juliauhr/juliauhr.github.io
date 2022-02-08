@@ -5,7 +5,9 @@ h2{
 img{
   width:15em;
   float:right;
+  margin:1em;
 }
 .text{
   text-align:left;
+  padding:2em;
 }
